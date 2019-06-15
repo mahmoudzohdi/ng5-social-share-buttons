@@ -1,0 +1,11 @@
+<div class="social-share-component">
+  <div class="share-buttons-tooltip" *ngIf="showTooltip">
+    <share-buttons
+      url="https://www.youtube.com/"
+    ></share-buttons>
+  </div>
+  <button type="button" class="social-share-button" (click)="toggleSocialShareTooltip()">
+    <fa-icon [icon]="['fa', 'share-alt']"></fa-icon>
+  </button>
+</div>
+
