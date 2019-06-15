@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocialShareButtonsComponent implements OnInit {
 
-  private showTooltip: boolean = false;
+  showTooltip: boolean = false;
 
   constructor() { }
 
