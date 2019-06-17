@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'social-share-buttons',
@@ -9,9 +9,17 @@ export class SocialShareButtonsComponent implements OnInit {
 
   showTooltip: boolean = false;
 
-  constructor() { }
+  constructor(
+    private renderer: Renderer2,
+    private _elementRef: ElementRef
+  ) { }
 
   ngOnInit() {
+    this.renderer.listen('window', 'click',(e:Event)=>{
+      if(e.target !== this._elementRef.nativeElement && !this._elementRef.nativeElement.contains(e.target)){
+          this.showTooltip = false;
+      }
+    });
   }
 
   toggleSocialShareTooltip(){
